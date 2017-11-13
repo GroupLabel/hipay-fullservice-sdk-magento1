@@ -5,8 +5,8 @@ web:
   ports:
       - "{PORT_WEB}:80"
   environment:
-    - SAMPLE_DATA_VERSION=1.9
-    - MAGENTO_VERSION=1.9.2.3
+    - MAGENTO_VERSION=1.8.0.0
+    - SAMPLE_DATA_VERSION=1.6_1.8
   env_file:
     - ./bin/conf/production/hipay.env.sample
     - ./bin/conf/production/mage.env.sample
