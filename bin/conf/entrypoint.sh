@@ -34,21 +34,6 @@ printf "\n${COLOR_SUCCESS} ======================================= ${NC}\n"
     chmod -R a+rw /var/www/htdocs
     rm -f  /var/www/htdocs/install.php
 
-    ################################################################################
-    # INSTALLING HIPAY'S FILES
-    ################################################################################
-    printf "\n${COLOR_SUCCESS} ======================================= ${NC}\n"
-    printf "\n${COLOR_SUCCESS}              COPY HIPAY FILES           ${NC}\n"
-    printf "\n${COLOR_SUCCESS} ======================================= ${NC}\n"
-    cp -Rf /tmp/src/app/code /var/www/htdocs/app/
-    cp -Rf /tmp/src/app/design /var/www/htdocs/app/
-    cp -Rf /tmp/src/app/etc /var/www/htdocs/app/
-    cp -Rf /tmp/src/app/locale /var/www/htdocs/app/
-    cp -Rf /tmp/src/skin /var/www/htdocs/
-
-    printf "\n"
-    echo "Files from local folder \"src\" are transfered in dockerized magento"
-    printf "\n"
     n98-magerun.phar --skip-root-check --root-dir="$MAGENTO_ROOT" cache:clean
 
     # Prefix for Entity Order
@@ -82,16 +67,6 @@ printf "\n${COLOR_SUCCESS} ======================================= ${NC}\n"
     printf "\n${COLOR_SUCCESS} ======================================= ${NC}\n"
     printf "\n${COLOR_SUCCESS}          SET HIPAY CREDENTIALS          ${NC}\n"
     printf "\n${COLOR_SUCCESS} ======================================= ${NC}\n"
-
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set hipay/hipay_api/api_username_test $HIPAY_API_USER_TEST
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set --encrypt hipay/hipay_api/api_password_test $HIPAY_API_PASSWORD_TEST
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set hipay/hipay_api/api_tokenjs_publickey_test $HIPAY_TOKENJS_PUBLICKEY_TEST
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set --encrypt hipay/hipay_api/secret_passphrase_test $HIPAY_SECRET_PASSPHRASE_TEST
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set hipay/hipay_api/api_tokenjs_username_test $HIPAY_TOKENJS_USERNAME_TEST
-
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set hipay/hipay_api_moto/api_username_test $HIPAY_API_USER_TEST
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set --encrypt hipay/hipay_api_moto/api_password_test $HIPAY_API_PASSWORD_TEST
-    n98-magerun.phar -q --skip-root-check --root-dir="$MAGENTO_ROOT" config:set --encrypt hipay/hipay_api_moto/secret_passphrase_test $HIPAY_SECRET_PASSPHRASE_TEST
 
     printf "\n"
     echo " YOUR CREDENTIALS ARE : "
