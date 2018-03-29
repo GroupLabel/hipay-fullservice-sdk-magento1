@@ -11,7 +11,6 @@ dependencies:
   pre:
     - sudo apt-get install sshpass git
     - sh bin/docker/generate_dockerfile.sh
-    - sh ./bin/deployment/setup_sonar.sh
 test:
   override:
     - case $CIRCLE_NODE_INDEX in 0) sh ./bin/docker/init-environment.circle.sh php5.6 ;; 1) sh ./bin/docker/init-environment.circle.sh php7-0 ;;  2) sh ./bin/docker/init-environment.circle.sh php5.6 1.8.0.0 1.6_1.8 ;; esac:
