@@ -13,6 +13,11 @@ casper.test.begin('Test Magento Admin Menus', function(test) {
 		this.echo("Open Integration nav", "INFO");
 		this.waitForUrl(/maccount/, function success() {
 			this.selectHashingAlgorithm("SHA1");
+            
+			// Fake CURL call (TEMP CURL FIX)
+            this.echo("Fake Curl URL", "INFO");
+            data='';
+            this.execCommand('',false,pathGenerator);
 		}, function fail() {
 			test.assertUrlMatch(/maccount/, "Dashboard page with account ID exists");
 		});

@@ -21,6 +21,6 @@ sshpass -p $PASS_DEPLOY ssh root@docker-knock-auth.hipay.org -p $port  "export D
 
 echo "Deploy project for project $CIRCLE_PROJECT_REPONAME and branch $GITHUB_BRANCH"
 sshpass -p $PASS_DEPLOY ssh root@docker-knock-auth.hipay.org -p $port  "export DOCKER_API_VERSION=1.23 && docker exec " \
-    "deploy.hipay-pos-platform.com" /deploy/deploy_project.sh  $CIRCLE_PROJECT_REPONAME $GITHUB_BRANCH $CIRCLE_BUILD_URL
+    "deploy.hipay-pos-platform.com" /deploy/deploy_project.sh  $CIRCLE_PROJECT_REPONAME $GITHUB_BRANCH $CIRCLE_BUILD_URL gitlab
 
 
