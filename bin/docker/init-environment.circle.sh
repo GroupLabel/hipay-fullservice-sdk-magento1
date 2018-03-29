@@ -32,12 +32,12 @@ if [ "$3" != '' ]; then
 
     cat docker-compose.stage.circle-magento18.yml
 
-    docker-compose -f docker-compose.yml -f docker-compose.stage.circle-magento18.yml build --no-cache
-    docker-compose -f docker-compose.yml -f docker-compose.stage.circle-magento18.yml up -d
+    docker-compose -f docker-compose.stage.circle-magento18.yml build --no-cache
+    docker-compose -f docker-compose.stage.circle-magento18.yml up -d
 else
   echo "Build and start Magnto latest and PHP : $PHP_VERSION "
-  docker-compose -f docker-compose.yml -f docker-compose.stage.circle$PHP_VERSION.yml build --no-cache
-  docker-compose -f docker-compose.yml -f docker-compose.stage.circle$PHP_VERSION.yml up -d
+  docker-compose -f docker-compose.stage.circle$PHP_VERSION.yml build --no-cache
+  docker-compose -f docker-compose.stage.circle$PHP_VERSION.yml up -d
 fi
 
 
