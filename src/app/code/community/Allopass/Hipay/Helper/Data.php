@@ -259,6 +259,8 @@ class Allopass_Hipay_Helper_Data extends Mage_Core_Helper_Abstract
             // Process an product load if needed
             $product = Mage::getModel('catalog/product')->load($product->getProductId());
 
+            $item['shop_id'] = 'TREE';
+
             // Load Mapping Category
             $categoryIds = $product->getCategoryIds();
             if (is_array($categoryIds) && !empty($categoryIds)) {
@@ -1399,7 +1401,7 @@ class Allopass_Hipay_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function isDeliveryMethodAndCartItemsRequired($product_code)
     {
-        return in_array($product_code, array('3xcb', '3xcb-no-fees', '4xcb-no-fees', '4xcb'));
+        return in_array($product_code, array('3xcb', '3xcb-no-fees', '4xcb-no-fees', '4xcb', 'credit-long'));
     }
 
     /**
